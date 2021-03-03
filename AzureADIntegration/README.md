@@ -29,7 +29,7 @@ This script will automatically create and configre an app named Automation Cloud
 ![Microsoft Graph PowerShell consent prompt](./media/msGraphPSConsent.png)
 
 5. Let the script run and generate the required Tenant ID, Application ID, and Application Secret
-![Example of completing the configAzureADconnection script](./media/configPSexample1.png)
+![Example of completing the configAzureADconnection script](./media/configPSexample2.png)
 
 6. Finally copy and paste the Azure AD Configuration values into Automation Cloud Portal
 ![Automation Cloud Portal](./media/automationCloudPortal.png)
