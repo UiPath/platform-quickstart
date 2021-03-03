@@ -104,7 +104,7 @@ $oauth2PermissionGrantParams = @{
 
 if(!(Get-MgOauth2PermissionGrant -Filter "clientId eq '$($servicePrincipalId)'"  -ErrorAction SilentlyContinue))
 {
-    New-MgOauth2PermissionGrant @oauth2PermissionGrantParams -SilentlyContinue
+    New-MgOauth2PermissionGrant @oauth2PermissionGrantParams SilentlyContinue
 }
 
 # Values needed to configure Azure AD connection in UiPath Automation Cloud 
