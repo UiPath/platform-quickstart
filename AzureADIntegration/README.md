@@ -58,4 +58,4 @@ This script will test your Azure AD app registration that you configred to ensur
 5. Let the script run and document discrepancies in the app registration
 
 6. If there are discrepancies, the script will offer to fix them for you! You can answer reply Y for yes or N for no.
-![Example of completing the testAzureADappRegistration script](./media/configPSexample1.png)
+![Example of completing the testAzureADappRegistration script](./media/testConfigPSexample.png)
