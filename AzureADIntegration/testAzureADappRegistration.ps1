@@ -107,7 +107,7 @@ if($servicePrincipal){
 
 #Check Oauth2PermissionGrant
 Write-Host "`n*************************************************************"
-$oauth2PermissionGrant = Get-MgOauth2PermissionGrant -Filter "clientId eq '$($servicePrincipalId)'"  -ErrorAction SilentlyContinue
+$oauth2PermissionGrant = Get-MgOauth2PermissionGrant -Filter "clientId eq '$($servicePrincipalId)'" -ErrorAction SilentlyContinue
 if($oauth2PermissionGrant)
 {
     $scopes = $oauth2PermissionGrant.Scope
@@ -152,7 +152,7 @@ if($consent -eq 'Y'){
     $Web = @{
         RedirectUris = @("https://cloud.uipath.com/identity_/signin-oidc","https://cloud.uipath.com/portal_/testconnection")
         ImplicitGrantSettings = @{ `
-            EnableAccessTokenIssuance = $False; `
+            EnableAccessTokenIssuance = $false; `
             EnableIdTokenIssuance = $true; `
         } `
     }
@@ -173,7 +173,7 @@ if($consent -eq 'Y'){
 
     # Update the application
     Update-MgApplication -ApplicationId $applicationId @appRegParams -ErrorAction SilentlyContinue
-    New-MgOauth2PermissionGrant @oauth2PermissionGrantParams  -ErrorAction SilentlyContinue
+    New-MgOauth2PermissionGrant @oauth2PermissionGrantParams -ErrorAction SilentlyContinue | Out-Null
     Write-Host "Alright you should be good to go! Feel free to run the script again to double check :)"
 } else {
     Write-Host "Thank you for running this script! Please update the app registration properties as advised above, and you can learn more at https://docs.uipath.com/automation-cloud/docs/azure-ad-integration"
