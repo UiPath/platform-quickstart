@@ -56,7 +56,7 @@ $userRead = @{ Id = "e1fe6dd8-ba31-4d61-89e7-88639da4683d"; Type = "Scope"}
 $Web = @{
     RedirectUris = @("https://cloud.uipath.com/identity_/signin-oidc","https://cloud.uipath.com/portal_/testconnection")
     ImplicitGrantSettings = @{ `
-        EnableAccessTokenIssuance = $true; `
+        EnableAccessTokenIssuance = $false; `
         EnableIdTokenIssuance = $true; `
     } `
 }

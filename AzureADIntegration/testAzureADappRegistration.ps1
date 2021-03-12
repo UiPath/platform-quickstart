@@ -76,10 +76,10 @@ if ($redirectUris -match 'https://cloud.uipath.com/portal_/testconnection' -And 
 Write-Host "`n*************************************************************"
 $enableAccessTokenIssuance = $web.implicitGrantSettings.enableAccessTokenIssuance
 $enableIdTokenIssuance = $web.implicitGrantSettings.enableIdTokenIssuance
-if( $enableAccessTokenIssuance -And $enableIdTokenIssuance) {
+if( $enableAccessTokenIssuance -eq $False -And $enableIdTokenIssuance) {
     Write-Host "Implicit grant settings are properly configured"
 } else {
-    Write-Host "Implicit grant settings are not properly configured. Please configure the issuance of id tokens and access tokens from the implicit grant settings."
+    Write-Host "Implicit grant settings are not properly configured. Please configure the issuance of id tokens from the implicit grant settings."
     $testConfigPasses = $False
 }
 
@@ -152,7 +152,7 @@ if($consent -eq 'Y'){
     $Web = @{
         RedirectUris = @("https://cloud.uipath.com/identity_/signin-oidc","https://cloud.uipath.com/portal_/testconnection")
         ImplicitGrantSettings = @{ `
-            EnableAccessTokenIssuance = $true; `
+            EnableAccessTokenIssuance = $False; `
             EnableIdTokenIssuance = $true; `
         } `
     }
