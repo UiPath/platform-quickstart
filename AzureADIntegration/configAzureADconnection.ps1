@@ -99,7 +99,7 @@ $oauth2PermissionGrantParams = @{
     ClientId    = $servicePrincipalId
     ConsentType = "AllPrincipals"
     ResourceId  = $msGraphSpId 
-    Scope       = "profile email openid User.Read.All Group.Read.All User.Read"
+    Scope       = "profile email openid User.ReadBasic.All GroupMember.Read.All User.Read"
 }
 
 if(!(Get-MgOauth2PermissionGrant -Filter "clientId eq '$($servicePrincipalId)'"  -ErrorAction SilentlyContinue))
