@@ -145,8 +145,8 @@ if($consent -eq 'Y'){
     $profile = @{ Id = "14dad69e-099b-42c9-810b-d002981feec1"; Type = "Scope"}
     $email = @{ Id = "64a6cdd6-aab1-4aaf-94b8-3cc8405e90d0"; Type = "Scope"}
     $openid = @{ Id = "37f7f235-527c-4136-accd-4a02d197296e"; Type = "Scope"}
-    $groupReadAll = @{ Id = "5f8c59db-677d-491f-a6b8-5f174b11ec1d"; Type = "Scope"}
-    $userReadAll = @{ Id = "a154be20-db9c-4678-8ab7-66f6cc099a59"; Type = "Scope"}
+    $groupMemberReadAll = @{ Id = "bc024368-1153-4739-b217-4326f2e966d0"; Type = "Scope"}
+    $userReadBasicAll = @{ Id = "b340eb25-3456-403f-be2f-af7a0d370277"; Type = "Scope"}
     $userRead = @{ Id = "e1fe6dd8-ba31-4d61-89e7-88639da4683d"; Type = "Scope"}
 
     $Web = @{
@@ -161,14 +161,14 @@ if($consent -eq 'Y'){
         SignInAudience = "AzureADMyOrg" 
         Web = $Web
         OptionalClaims = @{ IdToken = $upn, $familyName, $givenName}
-        RequiredResourceAccess = @{ ResourceAppId = $msGraphResourceId; ResourceAccess = $profile, $email, $openid, $groupReadAll, $userReadAll, $userRead} 
+        RequiredResourceAccess = @{ ResourceAppId = $msGraphResourceId; ResourceAccess = $profile, $email, $openid, $groupMemberReadAll, $userReadBasicAll, $userRead} 
     }
 
     $oauth2PermissionGrantParams = @{
         ClientId    = $servicePrincipalId
         ConsentType = "AllPrincipals"
         ResourceId  = $msGraphSpId 
-        Scope       = "profile email openid User.Read.All Group.Read.All User.Read"
+        Scope       = "profile email openid User.ReadBasic.All GroupMember.Read.All User.Read"
     }
 
     # Update the application
