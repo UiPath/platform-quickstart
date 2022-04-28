@@ -6,7 +6,7 @@ These scripts will help you automate and test the Azure AD application registrat
 - [testAzureADappRegistration.ps1](##testAzureADappRegistration.ps1)
 
 ## [configAzureADconnection.ps1](configAzureADconnection.ps1)
-This script will automatically create and configre an app named Automation Cloud Azure AD Integration, and return the parameters needed to configure the connection (Azure AD Tenant ID, AppID, Client Secret).
+This script will automatically create and configure an app named Automation Cloud Azure AD Integration, and return the parameters needed to configure the connection (Azure AD Tenant ID, AppID, Client Secret).
 
 ### Prerequisites: 
 - Azure AD tenant 
@@ -16,7 +16,10 @@ This script will automatically create and configre an app named Automation Cloud
 ### Configuration steps: 
 1. Run the PowerShell Script as an Administrator:
 ```Powershell
-.\configAzureADconnection.ps1 -TenantID "Your Azure AD TenantID"
+# Automation Cloud setup
+.\configAzureADconnection.ps1 -TenantID "Your Azure AD TenantID" -Platform "AutomationCloud"
+# Automation Suite setup
+.\configAzureADconnection.ps1 -TenantID "Your Azure AD TenantID" -Platform "AutomationSuite" -AutomationSuiteFQDN "Your AutomationSuite FQDN"
 ```
 2. You will be asked to sign in using Microsoft's device login flow and grant consent to the Microsoft Graph Powershell App
 ![Example of starting the configAzureADconnection script](./media/configPSexample1.png)
@@ -36,7 +39,7 @@ This script will automatically create and configre an app named Automation Cloud
 
 
 ## [testAzureADappRegistration.ps1](testAzureADappRegistration.ps1)
-This script will test your Azure AD app registration that you configred to ensure all the properties are configured properly.
+This script will test your Azure AD app registration that you configured to ensure all the properties are configured properly.
 
 ### Prerequisites: 
 - Azure AD tenant 
@@ -46,7 +49,10 @@ This script will test your Azure AD app registration that you configred to ensur
 ### Configuration steps: 
 1. Run the PowerShell Script as an Administrator:
 ```Powershell
-.\testAzureADappRegistration.ps1 -TenantID "Your Azure AD tenant ID" -AppId "Your Automation Cloud Azure AD Integration application ID"
+# Automation Cloud
+.\testAzureADappRegistration.ps1 -TenantID "Your Azure AD tenant ID" -AppId "Your Automation Cloud Azure AD Integration application ID" -Platform "AutomationCloud"
+# Automation Suite
+.\testAzureADappRegistration.ps1 -TenantID "Your Azure AD tenant ID" -AppId "Your Automation Suite Azure AD Integration application ID" -Platform "AutomationSuite" -AutomationSuiteFQDN "Your AutomationSuite FQDN"
 ```
 
 2. You will be asked to sign in using Microsoft's device login flow and grant consent to the Microsoft Graph Powershell App
