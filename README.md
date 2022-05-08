@@ -1,5 +1,5 @@
-# Automation Cloud
-In this repo, you will find resources to help automate the administration of UiPath Automation Cloud.
+# Automation Platform
+In this repo, you will find resources to help automate the administration of UiPath Automation Platform.
 
 ## Azure AD Integration
 Automation Cloud enables enterprise-wide scalability and governance with the Azure AD integration. You will find scripts designed to help automate the directory connection configuration in [AzureADIntegration](AzureADIntegration). 
