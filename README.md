@@ -1,4 +1,4 @@
-# Automation Platform
+# Platform Scripts
 In this repo, you will find resources to help automate the administration of UiPath Automation Platform.
 
 ## Azure AD Integration
