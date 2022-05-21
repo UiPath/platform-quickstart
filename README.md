@@ -2,7 +2,7 @@
 In this repo, you will find resources to help automate the administration of UiPath Automation Platform.
 
 ## Azure AD Integration
-UiPath Platform enables enterprise-wide scalability and governance with the Azure AD integration. You will find scripts designed to help automate the directory connection configuration in [AzureADIntegration](AzureADIntegration). 
+UiPath Platform enables enterprise-wide scalability and governance with the Azure AD integration. You will find scripts designed to help automate the directory connection configuration in [azure-ad-integration](azure-ad-integration). 
 
 ## Kerberos Integration
 You will find scripts designed to help Active Directory administrator to generate Keytabs needed in [Setting Up Kerberos Authentication](https://docs.uipath.com/automation-suite/v2022.4/docs/setting-up-kerberos-authentication). These scripts need to be run in windows domain joined machines, and run as administrator.
