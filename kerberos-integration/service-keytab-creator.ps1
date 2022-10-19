@@ -9,6 +9,7 @@ while (!$usercheck_success)
 	try{
 		$ad_username = Read-Host -Prompt 'AD username / sAMAccountName (e.g., aduser)'
 		$ad_user_psw = Read-Host -AsSecureString 'AD user password'
+		$credential = New-Object System.Net.NetworkCredential($ad_username, $ad_user_psw)
 		Write-Output 'Validating AD user:'
 		Get-ADUser -Identity $ad_username
 		$usercheck_success = $true
@@ -33,7 +34,7 @@ $keytab_file_path = $output_folder_path + '\krb5.keytab'
 
 #Generate keytab
 $upper_ad_fqdn = $ad_fqdn.ToUpper()
-ktpass -princ $ad_username@$upper_ad_fqdn -pass $ad_user_psw  -pType KRB5_NT_PRINCIPAL -out $keytab_file_path -crypto AES256-SHA1 -setpass
+ktpass -princ $ad_username@$upper_ad_fqdn -pass $credential.Password  -pType KRB5_NT_PRINCIPAL -out $keytab_file_path -crypto AES256-SHA1 -setpass
 
 #Encode keytab
 $keytab = [Convert]::ToBase64String([System.IO.File]::ReadAllBytes($keytab_file_path))
